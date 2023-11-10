@@ -1,16 +1,15 @@
 package com.koneko.consulting;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
 public class Demo {
 	public static void main(String[] args) throws Exception {
-		Class<?> clazz = com.koneko.consulting.Book.class.getClass();
-		Object obj = clazz.getDeclaredConstructor().newInstance();
-		Book book = (Book)obj;
+		String code = "东京经理情报专门";
+		String temp = URLEncoder.encode(code,"iso8859-1");
+		System.out.println(temp);
 		
-	}
-}
-
-class Book{
-	public Book() {
-		System.out.println("【Book】对象实例化");
+		temp = URLDecoder.decode(temp,"UTF-8");
+		System.out.println(temp);
 	}
 }

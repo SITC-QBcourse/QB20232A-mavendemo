@@ -9,9 +9,9 @@
 </head>
 <body>
 <%
-Object name = application.getAttribute("name");
+Object name = pageContext.getAttribute("name",pageContext.REQUEST_SCOPE);
 String userName = (String)name;
-Object time = application.getAttribute("time");
+Object time = request.getAttribute("time");
 Date dateTime = (Date)time;
 %>
 

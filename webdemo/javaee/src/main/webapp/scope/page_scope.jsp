@@ -9,10 +9,10 @@
 </head>
 <body>
 <%
-application.setAttribute("name","laoyang");
-application.setAttribute("time",new Date());
+pageContext.setAttribute("name","laoyang",pageContext.REQUEST_SCOPE);
+pageContext.setAttribute("time",new Date());
 %>
-<%-- <jsp:forward page="request_scope.jsp"/> --%>
-<a href="request_scope.jsp">点击跳转</a>
+<jsp:forward page="request_scope.jsp"/>
+<!-- <a href="request_scope.jsp">点击跳转</a> -->
 </body>
 </html>
