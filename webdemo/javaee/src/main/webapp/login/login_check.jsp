@@ -18,6 +18,12 @@
 	String userName = request.getParameter("name");
 	String userPWD = request.getParameter("password");
 	
+	String code = request.getParameter("code");
+	String rand = session.getAttribute("rand").toString();
+	
+	if(code.equalsIgnoreCase(rand)){
+		System.out.println(code);
+		System.out.println(rand);
 	boolean flag = name.equals(userName)&&password.equals(userPWD);
 	if(flag){
 		session.setAttribute("nickname",userName);
@@ -32,6 +38,11 @@
 3秒后页面跳转，如果没有自动跳转，请<a href="login.jsp">点击此处</a>手动跳转！
 <%
     }
+	}else{
+		%>
+		<jsp:forward page="login.jsp"/>
+		<%
+	}
 %>
 </body>
 </html>
