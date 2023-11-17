@@ -12,33 +12,26 @@
 </head>
 <body>
 <%
-	String name = null;
-	String mid = request.getParameter("mid");
-	String password = request.getParameter("password");    
-    String sql = "select name from member where mid= ? and password = ?";
-    PreparedStatement ps = DatabaseConnection.getConnection().prepareStatement(sql);
-    ps.setString(1, mid);
-    ps.setString(2, password);
-    ResultSet rs = ps.executeQuery();
-    if(rs.next()){
-    	name = rs.getString(1);
+	String name = "laoyang";
+	String password = "123456";
+	
+	String userName = request.getParameter("name");
+	String userPWD = request.getParameter("password");
+	
+	boolean flag = name.equals(userName)&&password.equals(userPWD);
+	if(flag){
+		session.setAttribute("nickname",userName);
+		response.setHeader("refresh","3;url=login_welcome.jsp");
+%>
+用户登陆成功！3秒后页面跳转，如果没有自动跳转，请<a href="login_welcome.jsp">点击此处</a>手动跳转！
+<%
+    }else{
+    	response.setHeader("refresh","3;url=login.jsp");
+%>
+用户登陆失败！（错误的用户名或者密码）<br>
+3秒后页面跳转，如果没有自动跳转，请<a href="login.jsp">点击此处</a>手动跳转！
+<%
     }
-    DatabaseConnection.close();
-%>
-<%
-	if(name != null){
-%>
-    <jsp:forward page="login_welcome.jsp">
-        <jsp:param value="<%=name %>" name="name"/>
-    </jsp:forward>
-<%
-	}else{
-%>
-    <jsp:forward page="login_failure.jsp">
-        <jsp:param value="<%=mid %>" name="error"/>
-    </jsp:forward>
-<%
-	}
 %>
 </body>
 </html>

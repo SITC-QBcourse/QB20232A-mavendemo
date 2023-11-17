@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="response.jsp" method="get">
+<form action="response.jsp" method="post">
     请输入姓名：<input type="text" name="name"/><br>
     请输入年龄：<input type="text" name="age"/><br>
     请选择性别：<input type="radio" name="gender" value="男">男

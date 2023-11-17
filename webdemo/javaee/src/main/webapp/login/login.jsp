@@ -16,8 +16,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>用户编号</td>
-                    <td><input type="text" name="mid"/></td>
+                    <td>用户姓名</td>
+                    <td><input type="text" name="name"/></td>
                     <td><input type="submit" value="提交"/></td>
                 </tr>
                 <tr>
