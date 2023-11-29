@@ -1,6 +1,5 @@
-<%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
-<%@page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
-<%@page import="java.util.Scanner"%>
+<%@page import="com.koneko.consulting.util.FileUploadUtil"%>
+<%@page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,21 +10,27 @@
 </head>
 <body>
 <%!
-public static final long MAX_SIZE = 3141592L;
-public static final long FILE_MAX_SIZE = 1010101L;
-public static final String TEMP_DIR = "/temp/";
-public static final String UPLOAD_DIR = "/upload/";
-public static final String ENCODING = "utf-8";
+
 %>
 <%
-request.setCharacterEncoding(ENCODING);
-DiskFileItemFactory factory = new DiskFileItemFactory();
-factory.setRepository(new File(TEMP_DIR));
-ServletFileUpload upload = new ServletFileUpload(factory);
-upload.setSizeMax(MAX_SIZE);
-upload.setFileSizeMax(FILE_MAX_SIZE);
+request.setCharacterEncoding("UTF-8");
 
-if(upload)
+FileUploadUtil fuu = new FileUploadUtil(request);
+List<String> fileNames = fuu.getUUIDName("pic");
+fuu.saveUploadFile("pic", fileNames);
+// fuu.clear();
 %>
+
+<h1>姓名：<%=fuu.getParameter("name") %></h1>
+<h1>角色：<%=Arrays.toString(fuu.getParameterValues("role")) %></h1>
+<h1>照片：
+<%
+for(String fileName : fileNames){
+	%>
+	   <img src="<%=request.getContextPath() %>/upload/<%=fileName %>"
+	<%
+}
+%></h1>
+
 </body>
 </html>
