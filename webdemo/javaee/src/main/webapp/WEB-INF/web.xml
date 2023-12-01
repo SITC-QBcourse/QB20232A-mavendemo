@@ -4,28 +4,4 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-    <servlet-name>hello</servlet-name>
-    <jsp-file>/WEB-INF/test_config.jsp</jsp-file>
-    <init-param>
-        <param-name>driver</param-name>
-        <param-value>com.mysql.cj.jdbc.Driver</param-value>
-    </init-param>
-    <init-param>
-        <param-name>username</param-name>
-        <param-value>root</param-value>
-    </init-param>
-    <init-param>
-        <param-name>userpassword</param-name>
-        <param-value>shirahagi</param-value>
-    </init-param>
-    <init-param>
-        <param-name>url</param-name>
-        <param-value>jdbc:mysql://localhost:3306/qb2022</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>hello</servlet-name>
-    <url-pattern>/laoyang.ly</url-pattern>
-  </servlet-mapping>
 </web-app>
