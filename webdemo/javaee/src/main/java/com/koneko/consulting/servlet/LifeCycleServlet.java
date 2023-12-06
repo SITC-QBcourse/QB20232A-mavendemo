@@ -1,6 +1,7 @@
 package com.koneko.consulting.servlet;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -23,19 +24,18 @@ public class LifeCycleServlet extends HttpServlet {
 	
 	//初始化
 	@Override
-	public void init() throws ServletException {
-		System.out.println("【LifeCycleServlet】Servlet的无参init初始化");
-	}
-	@Override
 	public void init(ServletConfig config) throws ServletException {
-		System.out.println("【LifeCycleServlet】Servlet初始化：message1 = " + config.getInitParameter("message1"));
+		
 	}
 	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("【LifeCycleServlet】Servlet处理HTTP请求");
-	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("【LifeCycleServlet】Servlet处理GET请求");
+		;
+		System.out.println(super.getServletConfig());
+		Enumeration<String> params = super.getServletConfig().getInitParameterNames();
+		while(params.hasMoreElements()) {
+			String param = params.nextElement();			
+			System.out.println("【LifeCycleServlet】Servlet初始化：" + param + " = " + super.getServletConfig().getInitParameter(param));
+		}
 	}
 //	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		System.out.println("【LifeCycleServlet】Servlet处理POST请求");
