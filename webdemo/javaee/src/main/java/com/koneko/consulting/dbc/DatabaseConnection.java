@@ -13,7 +13,6 @@ public class DatabaseConnection {
 	private static final ThreadLocal<Connection> THREAD_LOCAL = new ThreadLocal<>();
 	
 	private DatabaseConnection() {
-		System.out.println();
 	}
 	public static Connection rebuildConnection() {
 		Connection conn = null;

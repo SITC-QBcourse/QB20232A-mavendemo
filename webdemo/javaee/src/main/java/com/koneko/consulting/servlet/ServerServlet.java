@@ -1,5 +1,4 @@
 package com.koneko.consulting.servlet;
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
