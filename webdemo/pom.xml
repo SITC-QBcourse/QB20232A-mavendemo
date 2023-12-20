@@ -137,6 +137,7 @@
   <modules>
       
     <module>javaee</module>
-      
+
+    <module>koneko</module>
   </modules>
 </project>
