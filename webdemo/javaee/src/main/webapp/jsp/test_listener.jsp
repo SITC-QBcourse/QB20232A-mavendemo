@@ -7,7 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-Request保存的内容：<%=request.getAttribute("name1") %><br>
-Session保存的内容：<%=request.getAttribute("name2") %>
+<%
+String msg = (String)request.getAttribute("msg");
+out.println(msg);
+request.setAttribute("msg","javaworld.koneko-consulting.com");
+%>
+<a href="test_listener/test_request_attribute.jsp">点击</a>
 </body>
 </html>

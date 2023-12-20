@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-Request保存的内容：<%=request.getAttribute("name1") %><br>
-Session保存的内容：<%=request.getAttribute("name2") %>
+<%
+request.setAttribute("msg", "www.koneko-consulting.com");
+%>
+<jsp:forward page="../test_listener.jsp"></jsp:forward>
 </body>
 </html>

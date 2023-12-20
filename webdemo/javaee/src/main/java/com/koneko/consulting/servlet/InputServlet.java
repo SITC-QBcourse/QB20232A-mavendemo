@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(
-		description = "使用注解实现Servlet配置",
-		urlPatterns = {"/input.action","/input/action/*"},
-		loadOnStartup = 2
-		)
+//@WebServlet(
+//		description = "使用注解实现Servlet配置",
+//		urlPatterns = {"/input.action","/input/action/*"},
+//		loadOnStartup = 2
+//		)
 public class InputServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {

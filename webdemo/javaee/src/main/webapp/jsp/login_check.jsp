@@ -27,9 +27,9 @@
 	boolean flag = name.equals(userName)&&password.equals(userPWD);
 	if(flag){
 		session.setAttribute("nickname",userName);
-		response.setHeader("refresh","3;url=login_welcome.jsp");
+		response.setHeader("refresh","3;url=./login/login_welcome.jsp");
 %>
-用户登陆成功！3秒后页面跳转，如果没有自动跳转，请<a href="login_welcome.jsp">点击此处</a>手动跳转！
+用户登陆成功！3秒后页面跳转，如果没有自动跳转，请<a href="./login/login_welcome.jsp">点击此处</a>手动跳转！
 <%
     }else{
     	response.setHeader("refresh","3;url=login.jsp");

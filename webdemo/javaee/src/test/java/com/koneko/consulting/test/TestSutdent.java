@@ -39,4 +39,12 @@ public class TestSutdent {
 			System.out.println(stu);
 		}
 	}
+	
+	@Test
+	public void test() {
+		Integer i = 10;
+		short s1 = 10;
+		Long l = (long)s1 + i;
+		
+	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Request保存的内容：<%=request.getAttribute("name1") %><br>
-Session保存的内容：<%=request.getAttribute("name2") %>
+<h1>【param标志位】info参数内容：${param.info }</h1>
 </body>
 </html>
