@@ -1,0 +1,7 @@
+<Context>        <!-- 配置上下文 -->
+    <!-- 配置Session持久化管理策略，当session超过1分钟不活跃时，则进行持久化处理 -->
+    <Manager className="org.apache.catalina.session.PersistentManager" maxIdleSwap="1">
+        <!-- 定义文件存储，同时设置文件存储的路径 -->
+        <Store className="org.apache.catalina.session.FileStore" directory="h:/session"/>
+    </Manager>
+</Context>
