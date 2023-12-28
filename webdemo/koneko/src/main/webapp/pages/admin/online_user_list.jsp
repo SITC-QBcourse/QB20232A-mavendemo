@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
 </head>
 <%!
-    public static final String KICKOUT_URL = "/pages/admin/KickoutServlet";
+    public static final String KICKOUT_URL = "KickoutServlet";
 %>
 <body class="container">
 <div class="row">
@@ -61,7 +61,7 @@
         <div class="panel-footer">
             <div style="text-align:right;">
                 <img src="images/logo.png" style="height: 30px;">
-                <strong>沐言科技（www.yootk.com） —— 新时代软件教育领导品牌</strong>
+                <strong>(株)コネコ・コンサルティング——www.koneko-consulting.com</strong>
             </div>
         </div>
     </div>

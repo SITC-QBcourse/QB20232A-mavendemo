@@ -22,36 +22,24 @@
 				<div id="carouselMenu" class="carousel slide" data-interval="200" data-wrap="true">
 					<!-- 轮播（Carousel）内容显示，显示内容的个数与索引控制项对应 -->
 					<div class="carousel-inner">
-						<div class="item active">
-							<a href="https://www.koneko-consulting.com" target="_ablank">
-								<img src="upload/ad/ads-pic-01.png" alt="f1Img">
-							</a>
+						<%
+							String sql = "SELECT title,url,photo FROM ad";
+							PreparedStatement pstmt = DatabaseConnection.getConnection().prepareStatement(sql); // 数据查询
+							ResultSet rs = pstmt.executeQuery(); // 执行数据查询
+							int index = 0; // 作为首页的“active”的配置
+							while (rs.next()) {
+								String title = rs.getString(1);
+								String url = rs.getString(2);
+								String photo = rs.getString(3); // 图片通过了一个文件名称进行描述
+						%>
+						<div class="item <%=index ++ == 0 ? "active" : ""%>">
+							<a href="<%=url%>" target="_ablank" title="<%=title%>">
+								<img src="upload/ad/<%=photo%>" alt="f1Img"></a>
 						</div>
-						<div class="item ">
-							<a href="https://www.koneko-consulting.com" target="_ablank">
-								<img src="upload/ad/ads-pic-02.png" alt="f2Img">
-							</a>
-						</div>
-						<div class="item ">
-							<a href="https://www.koneko-consulting.com" target="_ablank">
-								<img src="upload/ad/ads-pic-03.png" alt="f3Img">
-							</a>
-						</div>
-						<div class="item ">
-							<a href="https://www.koneko-consulting.com" target="_ablank">
-								<img src="upload/ad/ads-pic-04.png" alt="f4Img">
-							</a>
-						</div>
-						<div class="item ">
-							<a href="https://www.koneko-consulting.com" target="_ablank">
-								<img src="upload/ad/ads-pic-05.png" alt="f5Img">
-							</a>
-						</div>
-						<div class="item ">
-							<a href="https://www.koneko-consulting.com" target="_ablank">
-								<img src="upload/ad/ads-pic-06.png" alt="f6Img">
-							</a>
-						</div>
+						<%
+							}
+							DatabaseConnection.close(); // 关闭数据库连接
+						%>
 					</div>
 					<!-- 轮播（Carousel）导航 -->
 					<a class="carousel-control left" href="#carouselMenu"
@@ -63,11 +51,11 @@
 		</div>
 		<div class="row">&nbsp;</div>
 		<div class="row">
-<!-- 			<div class="col-sm-12"> -->
-<!-- 				<video width="1140" height="715" controls="controls" autoplay="autoplay" loop="loop"> -->
-<!-- 					<source src="images/main.mp4" type="video/mp4"> -->
-<!-- 				</video> -->
-<!-- 			</div> -->
+			<div class="col-sm-12">
+				<video width="1140" height="715" controls="controls" autoplay="autoplay" loop="loop">
+					<source src="images/main.mp4" type="video/mp4">
+				</video>
+			</div>
 		</div>
 	</div>
 </body>

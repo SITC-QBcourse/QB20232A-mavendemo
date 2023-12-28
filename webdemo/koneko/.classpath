@@ -58,6 +58,7 @@
 	<classpathentry exported="true" kind="lib" path="E:/pleiades/2023-09/tomcat/9/lib/servlet-api.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
