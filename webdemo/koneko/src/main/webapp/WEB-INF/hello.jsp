@@ -1,7 +1,7 @@
 <%@ page pageEncoding="UTF-8" import="java.lang.reflect.*" %>    <%-- 设置显示编码 --%>
 <html>
 <head>
-    <title>(株)コネコ・コンサルティング</title>
+    <title>沐言科技：www.yootk.com</title>
 </head>
 <body>
 <%

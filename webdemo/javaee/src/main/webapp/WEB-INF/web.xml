@@ -4,16 +4,5 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
   <display-name>Archetype Created Web Application</display-name>
-    <filter>
-        <filter-name>EncodingFilter</filter-name>
-        <filter-class>com.koneko.consulting.filter.EncodingFilter</filter-class>
-        <init-param>
-            <param-name>charset</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>EncodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+
 </web-app>

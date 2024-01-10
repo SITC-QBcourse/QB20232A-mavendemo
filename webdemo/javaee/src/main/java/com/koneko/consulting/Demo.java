@@ -1,12 +1,11 @@
 package com.koneko.consulting;
 
 public class Demo{
-	public static void main(String[] args) {
-		int n = 5;
-		char from = 'A';
-		char to = 'B';
-		char inner = 'C';
-		get(n, from, to, inner);
+	public static void main(String[] args) throws ClassNotFoundException {
+		Class<?> user = Class.forName("com.koneko.consulting.vo.User");
+		System.out.println(user);
+		Class<?> conn = Class.forName("com.mysql.cj.jdbc.Driver");
+		System.out.println(conn);
 	}
 	public static void get(int n, char from, char to, char inner) {
 		if(n == 1) {

@@ -4,7 +4,7 @@
 %>
 <html>
 <head>
-    <title>(株)コネコ・コンサルティング</title>
+    <title>沐言科技：www.yootk.com</title>
     <base href="<%=basePath%>">
 </head>
 <body>

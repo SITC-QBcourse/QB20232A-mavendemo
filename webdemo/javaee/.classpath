@@ -6,7 +6,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="resources"/>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -61,17 +60,17 @@
 			<attribute name="m2e-apt" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/pleiades/2023-09/tomcat/9/lib/jsp-api.jar">
+	<classpathentry kind="lib" path="C:/pleiades/2023-03/tomcat/9/lib/jsp-api.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/pleiades/2023-09/tomcat/9/lib/servlet-api.jar">
+	<classpathentry kind="lib" path="C:/pleiades/2023-03/tomcat/9/lib/servlet-api.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/pleiades/2023-09/tomcat/9/lib/tomcat-api.jar">
+	<classpathentry kind="lib" path="C:/pleiades/2023-03/tomcat/9/lib/tomcat-api.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

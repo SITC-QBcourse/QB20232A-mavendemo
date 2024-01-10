@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>(株)コネコ・コンサルティング</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<!-- 如果要选择了上传文件，那么最终所有的表单都会以二进制数据流的形式进行传输 -->
+<form action="upload_do.jsp" enctype="multipart/form-data" method="post">
+    姓名：<input type="text" name="name"><br>  <!-- 文本数据 -->
+    角色：<input type="checkbox" name="role" value="admin">管理员
+         <input type="checkbox" name="role" value="guest">访客
+         <input type="checkbox" name="role" value="anonymous">匿名用户<br>
+    照片：<input type="file" name="photo"><br> <!-- 文件数据 -->
+    <button type="submit">提交</button><button type="reset">重置</button>
+</form>
+</body>
+</html>
