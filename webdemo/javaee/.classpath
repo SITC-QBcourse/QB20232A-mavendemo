@@ -60,17 +60,17 @@
 			<attribute name="m2e-apt" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/pleiades/2023-03/tomcat/9/lib/jsp-api.jar">
+	<classpathentry exported="true" kind="lib" path="C:/pleiades/2023-03/tomcat/9/lib/jsp-api.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/pleiades/2023-03/tomcat/9/lib/servlet-api.jar">
+	<classpathentry exported="true" kind="lib" path="C:/pleiades/2023-03/tomcat/9/lib/servlet-api.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/pleiades/2023-03/tomcat/9/lib/tomcat-api.jar">
+	<classpathentry exported="true" kind="lib" path="C:/pleiades/2023-03/tomcat/9/lib/tomcat-api.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

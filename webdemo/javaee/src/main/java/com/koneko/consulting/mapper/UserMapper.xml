@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!--   要的是接口文件的全限定名 -->
+  <mapper namespace="com.koneko.consulting.mapper.UserMapper">
+    <resultMap type="User" id="UserResultMap">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
+        <result column="birthday" property="birthday"/>
+    </resultMap>
+    <insert id="addUser" parameterType="User" statementType="PREPARED">
+        insert into user (name,age,sex,birthday) values(#{name},#{age},#{sex},#{birthday})
+    </insert>
+    <update id="updateById" parameterType="User">
+        update user set name=#{name},age=#{age},sex=#{sex}where id=#{id};
+    </update>
+    <delete id="removeById" parameterType="int">
+        delete user from user where id=#{id}
+    </delete>
+    <select id="findById" parameterType="int" resultType="User">
+        select id,name,age,sex,birthday from user where id = #{id}
+    </select>
+    <select id="findNameById" parameterType="int" resultType="String">
+        select name from user where id = #{id}
+    </select>
+  </mapper>

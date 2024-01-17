@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.koneko.consulting.mapper.SysUserMapper">
+    <resultMap type="com.koneko.consulting.vo.SysUser" id="SysUserResultMap">
+        <id column="id" property="id"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_password" property="userPassword"/>
+        <result column="user_email" property="userEmail"/>
+        <result column="user_info" property="userInfo"/>
+        <result column="head_img" property="headImg"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+    <select id="selectById" parameterType="long" resultType="com.koneko.consulting.vo.SysUser">
+        SELECT
+        `id` id,
+        `user_name` userName,
+        `user_password` userPassword,
+        `user_email` userEmail,
+        `user_info` userInfo,
+        `head_img` headImg,
+        `create_time` createTime
+        FROM
+        `sys_user`
+        WHERE
+        id=#{id}
+    </select>
+    <select id="selectAll" resultType="com.koneko.consulting.vo.SysUser">
+        SELECT
+        `id` id,
+        `user_name` userName,
+        `user_password` userPassword,
+        `user_email` userEmail,
+        `user_info` userInfo,
+        `head_img` headImg,
+        `create_time` createTime
+        FROM
+        `sys_user`
+    </select>
+    
+</mapper>

@@ -2,49 +2,27 @@ package com.koneko.consulting.test;
 
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.koneko.consulting.Demo;
 import com.koneko.consulting.dao.IStudentDao;
+import com.koneko.consulting.factory.DBConnection;
 import com.koneko.consulting.factory.IStudentFactory;
-import com.koneko.consulting.vo.Student;
+import com.koneko.consulting.vo.User;
 
 public class TestSutdent {
 
 	@Test
-	public void testDoCreate() throws SQLException {
+	public void testAddUser() throws SQLException {
 		IStudentDao dao = IStudentFactory.getStudentDao();
-		Student stu = new Student(6,"瑛姑","321456",68,'F',new Date());
-		boolean flag = dao.doCreate(stu);
-		if(flag) {
-			System.out.println("【IStudentDao】插入成功");
-		}else {
-			System.out.println("【IStudentDao】插入失败");
-		}
-	}
-	
-	@Test
-	public void testFindById() throws SQLException{
-		IStudentDao dao = IStudentFactory.getStudentDao();
-		Student stu = dao.findById(5);
-		System.out.println(stu);
-	}
-	
-	@Test
-	public void testFindAll() throws SQLException{
-		IStudentDao dao = IStudentFactory.getStudentDao();
-		List<Student> list = dao.findAll("阳");
-		for(Student stu : list) {
-			System.out.println(stu);
-		}
-	}
-	
-	@Test
-	public void test() {
-		Integer i = 10;
-		short s1 = 10;
-		Long l = (long)s1 + i;
-		
+		Logger logger = LoggerFactory.getLogger(Demo.class);
+		DBConnection dbc = new DBConnection();
+		SqlSession ss = dbc.getSqlSession();
+		User user = new User("laoyang",18,'M',new Date());
+		logger.info("运行结果：{}",ss.insert("addUser",user));
 	}
 }
