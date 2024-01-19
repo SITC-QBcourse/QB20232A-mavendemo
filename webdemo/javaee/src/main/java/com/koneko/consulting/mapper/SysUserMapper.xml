@@ -12,6 +12,126 @@
         <result column="head_img" property="headImg"/>
         <result column="create_time" property="createTime"/>
     </resultMap>
+    <select id="getList" resultType="com.koneko.consulting.vo.SysUser">
+        select * from sys_user;
+    </select>
+    <select id="selectByMap" parameterType="map" resultType="com.koneko.consulting.vo.SysUser">
+        select 
+        `id` id,
+        `user_name` userName,
+        `user_password` userPassword,
+        `user_email` userEmail,
+        `user_info` userInfo,
+        `head_img` headImg,
+        `create_time` createTime
+        from sys_user where user_name = #{userName} or id = #{id}
+    </select>
+    <select id="selectByDto" parameterType="com.koneko.consulting.dto.SysUserDto" resultType="com.koneko.consulting.vo.SysUser">
+        select 
+        `id` id,
+        `user_name` userName,
+        `user_password` userPassword,
+        `user_email` userEmail,
+        `user_info` userInfo,
+        `head_img` headImg,
+        `create_time` createTime
+        from sys_user 
+        <where>
+	        <if test="userName != null and userName != ''">
+	            and user_name like concat(#{userName},'%')
+	        </if>  
+	        <if test="userEmail != null and userEmail != ''">
+	            and user_email = #{userEmail}
+	        </if>
+	   </where>       
+    </select>
+    <select id="selectByIdOrName" resultType="com.koneko.consulting.vo.SysUser">
+        select 
+        `id` id,
+        `user_name` userName,
+        `user_password` userPassword,
+        `user_email` userEmail,
+        `user_info` userInfo,
+        `head_img` headImg,
+        `create_time` createTime
+        from sys_user 
+        <trim prefix="where" prefixOverrides="and | or">
+	        <choose>
+	            <when test="id != null and id != ''">
+	                and id = #{id}
+	            </when>
+	            <when test="userName != null and userName != ''">
+	                and user_name = #{userName}
+	            </when>
+	            <otherwise>
+	                and 1 = 2;
+	            </otherwise>
+	        </choose>
+	   </trim>
+    </select>
+    <select id="selectByCollection" resultType="com.koneko.consulting.vo.SysUser">
+        select 
+        `id` id,
+        `user_name` userName,
+        `user_password` userPassword,
+        `user_email` userEmail,
+        `user_info` userInfo,
+        `head_img` headImg,
+        `create_time` createTime
+        from sys_user 
+        where id IN 
+        <foreach collection="list" open="(" close=")" separator="," index="i" item="id">
+            #{id}
+        </foreach>
+    </select>
+    <insert id="insertUser" parameterType="com.koneko.consulting.vo.SysUser">
+        INSERT INTO `sys_user`(
+            `user_name`,
+            `user_password`,
+            `user_email`,
+            <if test="userEmail != null and userEmail != ''">
+            `user_info`,
+            </if>
+            `head_img`,
+            `create_time`            
+        )
+        VALUES
+        (
+            #{userName},
+            #{userPassword},
+            <if test="userEmail != null and userEmail != ''">
+            #{userEmail},
+            </if>
+            #{userInfo},
+            #{headImg,jdbcType=BLOB},
+            #{createTime,jdbcType=TIMESTAMP}
+        )
+        <selectKey keyColumn="id" keyProperty="id" resultType="long" order="AFTER">
+            select last_insert_id()
+        </selectKey>        
+    </insert>
+    <insert id="insertUsers" parameterType="com.koneko.consulting.vo.SysUser">
+        INSERT INTO `sys_user`(
+            `user_name`,
+            `user_password`,
+            `user_email`,
+            `user_info`,
+            `head_img`,
+            `create_time`            
+        )
+        VALUES
+        <foreach collection="list" item="user" separator=",">
+            (#{user.userName},
+            #{user.userPassword},
+            #{user.userEmail},
+            #{user.userInfo},
+            #{user.headImg,jdbcType=BLOB},
+            #{user.createTime,jdbcType=TIMESTAMP})
+        </foreach>
+        <selectKey keyColumn="id" keyProperty="id" resultType="long" order="AFTER">
+            select last_insert_id()
+        </selectKey>        
+    </insert>
     <select id="selectById" parameterType="long" resultType="com.koneko.consulting.vo.SysUser">
         SELECT
         `id` id,
@@ -38,5 +158,29 @@
         FROM
         `sys_user`
     </select>
-    
+    <update id="updateById">
+        update sys_user 
+        <trim prefix="set" suffixOverrides=",">
+	        <if test="userName != null and userName != ''">
+	            user_name = #{userName},
+	        </if>
+	        <if test="userPassword != null and userPassword != ''">
+	            user_password = #{userPassword},
+	        </if>
+	        <if test="userEmail != null and userEmail != ''">
+	            user_email = #{userEmail},
+	        </if>
+	        <if test="userInfo != null and userInfo != ''">
+	            user_info = #{userInfo},
+	        </if>
+	        <if test="headImg != null and headImg != ''">
+	            head_img = #{headImg},
+	        </if>
+	        <if test="createTime != null and createTime != ''">
+	            create_time = #{createTime},
+	        </if>
+	        id = #{id}
+        </trim>
+        where id = #{id}
+    </update>
 </mapper>

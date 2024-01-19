@@ -14,8 +14,8 @@ import lombok.Setter;
  * 创建时间：2022年1月3日
  * @version 1.0
  */
-@Getter
 @Setter
+@Getter
 public class SysUser {
 	private Long id; 				// 用户 ID
 	private String userName; 	// 用户名

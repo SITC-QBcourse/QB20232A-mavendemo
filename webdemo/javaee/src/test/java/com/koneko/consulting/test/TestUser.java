@@ -71,6 +71,7 @@ public class TestUser {
 		Connection conn = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
 		//生成PreparedStatement
 		String sql = "delete user from user where id = ?;";
+		String insertSql = "insert into user (id,name) values(101,'laoyang')";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, 12);
 		ps.executeUpdate();
