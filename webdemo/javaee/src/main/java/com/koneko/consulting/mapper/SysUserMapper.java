@@ -21,4 +21,5 @@ public interface SysUserMapper {
 	public List<SysUser> selectByCollection(Collection<Long> ids);
 	public void getList(ResultHandler<SysUser> result);
 	public boolean updateById(SysUser user);
+	public List<SysUser> testSelectStar();
 }

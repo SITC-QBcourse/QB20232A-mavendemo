@@ -86,22 +86,20 @@
     </select>
     <insert id="insertUser" parameterType="com.koneko.consulting.vo.SysUser">
         INSERT INTO `sys_user`(
+            `id`,
             `user_name`,
             `user_password`,
             `user_email`,
-            <if test="userEmail != null and userEmail != ''">
             `user_info`,
-            </if>
             `head_img`,
             `create_time`            
         )
         VALUES
         (
+            #{id},
             #{userName},
             #{userPassword},
-            <if test="userEmail != null and userEmail != ''">
             #{userEmail},
-            </if>
             #{userInfo},
             #{headImg,jdbcType=BLOB},
             #{createTime,jdbcType=TIMESTAMP}
@@ -183,4 +181,7 @@
         </trim>
         where id = #{id}
     </update>
+    <select id="testSelectStar" resultType="com.koneko.consulting.vo.SysUser">
+        select * from sys_user
+    </select>
 </mapper>

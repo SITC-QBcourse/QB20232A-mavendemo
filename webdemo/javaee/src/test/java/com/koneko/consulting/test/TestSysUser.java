@@ -44,6 +44,18 @@ public class TestSysUser {
 		logger.debug("----执行代码结束位置----");
 	}
 	@Test
+	public void testSelectStar() {
+		logger.debug("----执行代码开始位置----");
+		DBConnection dbc = new DBConnection();
+		SqlSession ss = dbc.getSqlSession();
+		mapper = ss.getMapper(SysUserMapper.class);
+		users = mapper.testSelectStar();
+		dbc.doConnection();
+		logger.debug("执行结果为：");
+		this.printUsers(users);
+		logger.debug("----执行代码结束位置----");
+	}
+	@Test
 	public void testSelectRolesByUserId() {
 		logger.debug("----执行代码开始位置----");
 		DBConnection dbc = new DBConnection();
@@ -71,6 +83,7 @@ public class TestSysUser {
 	public void testInsertUser() throws Exception {
 		logger.debug("----执行代码开始位置----");
 		user = new SysUser();
+		user.setId(1111L);
 		user.setUserName("张三");
 		user.setUserPassword("123456");
 		user.setUserEmail("zhangsan@koneko-consulting.com");
