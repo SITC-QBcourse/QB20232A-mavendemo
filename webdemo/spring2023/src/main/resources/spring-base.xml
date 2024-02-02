@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 <!--     bean的id属性是实例化的对象名 -->
 <!--     该对象是通过什么类得到的，就将类的全限定名写在class的属性中 -->
-    <bean id="messageService" class="com.koneko.consulting.service.IMessageService" abstract="true"/>
-<!--         作为boolean类型，spring对于boolean做出了对应的扩展 -->
-<!--         除了false和true之外，还可以通过off和on的方式表示真伪 -->
-    <bean id="messageConfig" class="com.koneko.consulting.di.config.MessageConfig">
-        <constructor-arg index="2" value="message.koneko-consulting.com"/>
-        <constructor-arg index="0" value="5566"/>
-        <constructor-arg index="1" value="on"/>
-    </bean>
-    
-<!--         property是将类中的属性罗列在这里进行赋值的操作 -->
-<!--         但是引用数据类型是通过ref引用其他的bean完成的 -->
-    <bean id="messageServiceImpl" class="com.koneko.consulting.service.impl.MessageServiceImpl" parent="messageService">
-        <constructor-arg ref="messageConfig"/>
-    </bean>
+
+<!--     启用Annotation配置注解的支持 -->
+    <context:annotation-config/>
+<!--     你要定义的注解扫描的包的信息，多个包可以通过逗号分隔 -->
+    <context:component-scan base-package="com.koneko.consulting.service,com.koneko.consulting.dao,com.koneko.consulting.config,com.koneko.consulting.vo"/>
 </beans>
