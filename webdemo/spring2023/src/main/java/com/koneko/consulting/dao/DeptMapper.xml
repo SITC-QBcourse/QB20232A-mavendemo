@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!--   要的是接口文件的全限定名 -->
+  <mapper namespace="com.koneko.consulting.dao.DeptMapper">
+    <resultMap type="com.koneko.consulting.vo.Dept" id="DeptResultMap">
+        <id column="dept_no" property="deptNo"/>
+        <result column="dept_name" property="deptName"/>
+        <result column="dept_loc" property="deptLoc"/>
+    </resultMap>
+    <select id="findByid" parameterType="long" resultType="com.koneko.consulting.vo.Dept">
+        select * from dept where dept_no = #{dept_no}
+    </select>
+  </mapper>

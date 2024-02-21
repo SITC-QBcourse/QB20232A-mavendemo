@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-<!--     bean的id属性是实例化的对象名 -->
-<!--     该对象是通过什么类得到的，就将类的全限定名写在class的属性中 -->
 
-<!--     启用Annotation配置注解的支持 -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- Uncomment and add your base-package here:
+         <context:component-scan
+            base-package="org.springframework.samples.service"/>  -->
+    
     <context:annotation-config/>
-<!--     你要定义的注解扫描的包的信息，多个包可以通过逗号分隔 -->
-    <context:component-scan base-package="com.koneko.consulting.service,com.koneko.consulting.dao,com.koneko.consulting.config,com.koneko.consulting.vo"/>
+    <context:component-scan base-package="com.koneko.consulting"/>
+    <context:property-placeholder location="classpath:*.properties"/>       
+
 </beans>

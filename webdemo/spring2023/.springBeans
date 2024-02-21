@@ -10,6 +10,7 @@
 		<config>src/main/resources/spring-base.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/spring-mvc.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

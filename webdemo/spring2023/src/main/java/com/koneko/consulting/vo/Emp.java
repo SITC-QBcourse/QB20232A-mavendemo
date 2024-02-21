@@ -1,8 +1,5 @@
 package com.koneko.consulting.vo;
 
-import lombok.Data;
-
-@Data
 public class Emp {
 	private Long empNo;
 	private String eName;

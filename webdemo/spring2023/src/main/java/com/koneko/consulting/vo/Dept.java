@@ -1,13 +1,12 @@
 package com.koneko.consulting.vo;
 
-import org.springframework.context.annotation.Configuration;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-import lombok.Data;
-import lombok.ToString;
-
-@Data
-@ToString
-@Configuration
+@AllArgsConstructor
+@Setter
+@Getter
 public class Dept {
 	private Long deptNo;
 	private String deptName;
