@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+window.onload = function(){
+    let btn = document.querySelector('button');
+    console.log(btn);
+    btn.onclick = function(){
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET','#','true');
+        xhr.send();
+        xhr.onreadystatechange = function(){
+                console.log('数据接收成功，readyState = ' + xhr.readyState);
+              }
+        }
+}
+</script>
+
+<button>ajax请求</button>
+</body>
+</html>

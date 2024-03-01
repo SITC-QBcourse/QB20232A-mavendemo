@@ -5,11 +5,9 @@ import java.util.Locale;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.convert.support.ConfigurableConversionService;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -18,7 +16,6 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.koneko.consulting.config.KonekoEventConfig;
 import com.koneko.consulting.event.KonekoEvent;
-import com.koneko.consulting.vo.Dept;
 
 @ContextConfiguration(locations = { "classpath:spring-base.xml" })
 public class TestConversionService {
@@ -61,14 +58,6 @@ public class TestConversionService {
 		LOGGER.info("============测试结束===========");
 	}
 	
-	@Test
-	public void testApplicationContext() {
-		ApplicationContext con = new FileSystemXmlApplicationContext("c:\\laoyang\\spring-base.xml");
-		LOGGER.info("============测试开始===========");
-		Dept dept = con.getBean("dept",Dept.class);
-		LOGGER.info("执行结果：{}",dept);
-		LOGGER.info("============测试结束===========");
-	}
 	
 	@Test
 	public void testConversionService() {

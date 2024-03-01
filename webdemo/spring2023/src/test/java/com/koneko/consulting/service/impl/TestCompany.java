@@ -19,7 +19,8 @@ public class TestCompany {
 	@Test
 	public void testAutowired() {
 		LOGGER.info("===========开始===========");
-		LOGGER.info("title = {}, class = {}",this.company.getTitle(),this.company.getClass().getName());
+//		LOGGER.info("title = {}, class = {}",this.company.getTitle(),this.company.getClass().getName());
+		
 		LOGGER.info("===========结束===========");
 	}
 }

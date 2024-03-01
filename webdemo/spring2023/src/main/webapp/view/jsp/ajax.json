@@ -1,0 +1,11 @@
+{
+    type:'post',
+    url:'${pageContext.request.contextPath}/echo.action',
+    data:{
+        a:xxx,
+        b:xxx,
+        c:xxx
+    },
+    async:false,
+    dateType:'json'
+}

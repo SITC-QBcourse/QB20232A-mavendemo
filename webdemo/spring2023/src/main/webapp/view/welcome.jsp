@@ -8,7 +8,7 @@
 </head>
 <body>
 <form>
-    生日：<input type="text" value="${requestScope.student.birthday}"><br>
+    信息：<input type="text" value="${requestScope.msg}"><br>
 </form>
 </body>
 </html>
